@@ -1,0 +1,67 @@
+.dialog{
+    position: absolute;
+    left:50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 95%;
+    max-height: 70%;
+    height: 160px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border:2px solid #bababa;
+    background: #e5fafa;
+    border-radius: 20px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,.2);
+    .dialog__heading{
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      background: #4250c7;
+      padding: .25rem .5rem;
+      justify-content: space-between;
+      border-bottom:2px solid #cacaca;
+      .dialog__title{
+        color:#fff;
+        padding: .25rem .5rem;
+      }
+      .dialog__close-button{
+        // padding: .5rem;
+        background: #Ba0837;
+        position: relative;
+        margin: .25rem .25rem .25rem 0;
+        border-radius: 5px;
+        width: 20px;
+        height: 20px;
+        transition: filter .5s ease-in-out;
+        &:after,&:before{
+          content: "";
+          position: absolute;
+          width: 15px;
+          left: 2px;
+          top: 8px;
+          height: 2px;
+          transform: rotate(45deg);
+          background: #dadada;
+        }
+        &:before{
+          transform: rotate(135deg);
+        }
+        &:hover{
+            filter: saturate(175%);
+            transform: scale(1.1)                       ;
+        }
+      }
+    }
+    .dialog__footer{
+      padding: .25rem 1rem;
+    }
+    .dialog__body{
+      flex:1;
+      padding: 1rem 1.5rem;
+      >.dialog__text{
+        margin: 0.5rem 1rem;        
+      }
+    }
+  }

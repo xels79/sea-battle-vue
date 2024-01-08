@@ -1,0 +1,29 @@
+.control__block{
+    padding: .5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    .control__label{
+        min-width: 200px;
+        text-align: right;
+        padding-right: .5rem;
+        margin-right: 1rem;
+    }
+    .control__input{
+        flex: 1;
+        padding: .125rem .5rem;
+    }
+    .control__button,
+    .btn
+    {
+        text-decoration: none;
+        padding: .25rem 1rem;
+        border-radius: 8px;
+        border:1px solid #1b1b1b;
+        color:#1b1b1b;
+        transition: background .5s ease-in-out;
+        &:hover{
+            background: #1b1b1b;
+            color: #dfdfdf;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "sea-battle-vue",
+  "version": "1.0.0",
+  "description": "Клиент серверный морской бой.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xels79/sea-battle2.git"
+  },
+  "author": "Aleksandr S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xels79/sea-battle2/issues"
+  },
+  "homepage": "https://github.com/xels79/sea-battle2#readme",
+  "type": "module",
+  "dependencies": {
+    "cookie-parse": "^0.4.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "mime-types": "^2.1.35",
+    "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.6"
+  }
+}
