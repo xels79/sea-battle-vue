@@ -1,8 +1,9 @@
 {
     "/css/*":"css",
     "/js/jquery/*":"node_modules/jquery/dist",
-    "/js/*":"js",
-    "/js/client/*":"js/client",
+    "/js/*":"client",
+    "/js/client/*":"client",
+    "/js/vue.js":"client/vue/vue.js",
     "/js/node/mustache.min.js":"node_modules/mustache/mustache.min.js",
     "/img/*":"img",
     "/favicon.ico":"img/favicon.ico"

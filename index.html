@@ -9,6 +9,7 @@
     <!-- <script src="js/node/mustache.min.js"></script> -->
     <!-- <script src="js/main.js" type="module"></script> -->
     <script src="js/console.js"></script>
+    <script src="js/vue.js"></script> 
     <title>Document</title>
 </head>
 <body>
@@ -34,9 +35,12 @@
                     <div class="frame__footer"></div>
                 </div>
             </div>
-            <div class="site__frames"></div>
+            <div class="site__frames" id="app"><frame-s msg="Uray"/></div>
         </div>
     </main>
     <footer class="site__footer background__attachment"><div class="console"></div></footer>
+    <script src="./js/client/dialogs.js"></script>
+    <script src="./js/client/frame-s.js"></script>
+    <script src="./js/client/main.js"></script>
 </body>
 </html>
