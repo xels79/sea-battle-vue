@@ -1,4 +1,4 @@
-import dialog_s from './dialogs.js';
+import dialog_s from './dialog-s';
 const addUserDialog={
     components:{
         "dialog-s":dialog_s
@@ -23,18 +23,18 @@ const addUserDialog={
         }]
     }},
     methods:{
-        onOk:function(e,e2){
+        onOk:function(e:Object,e2:any){
             // const index = +e.srcElement.getAttribute('data-index');
             console.log(this,e, e2);
             // console.log(e.srcElement.value);
             // this.userName = e.srcElement.value;
         },
-        onCansel:function(e,e2){
+        onCansel:function(e:Object,e2:any){
             console.log('cansel',e,e2);
         }
     },
 }
-const frame_s = {
+const frame_s:Object = {
     components:{addUserDialog},
     template:`
         <div class="frame">

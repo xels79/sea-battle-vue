@@ -1,7 +1,7 @@
 // import path from 'node:path';
 const path = require('path');
 module.exports = {
-    entry: './client/main.js',
+    entry: './client/main.ts',
     mode:'development',
     target:"node10",
     module: {
@@ -12,7 +12,7 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -28,9 +28,12 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
         // roots: path.resolve('.')
-        // alias: {
-        //     vue: 'vue/dist/vue.cjs.js'
-        //     }
+        modules: [path.resolve(__dirname, 'node_modules'), 'node_modules'],
+        alias: {
+            vue: 'vue/dist/vue.esm-browser.js'
+            // vue$: "vue/dist/vue.runtime.esm-browser.js",
+            
+        }
     },
     output: {
         filename: 'bundle.js',

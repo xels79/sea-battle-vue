@@ -7,12 +7,17 @@
         "moduleResolution": "Node",
         "outDir": ".",
         "experimentalDecorators": false,
-        
-        "esModuleInterop": true
-    },
+        "strictPropertyInitialization": false,
+        "declaration": false,
+        "types": ["node"],
+        "esModuleInterop": true,
+        "isolatedModules":true,
+        "verbatimModuleSyntax":true,
+        "strict":true
+    }, 
     "files":[
-        "client/main.js"
+        "client/main.ts"
     ],
     "exclude": ["node_modules"],
-    "extends": "./tsconfig_ex.json"
+    "extends": ["./tsconfig_ex.json", "@vue/tsconfig/tsconfig.dom.json"]
 }
