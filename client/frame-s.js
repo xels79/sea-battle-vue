@@ -1,11 +1,16 @@
 (function(){
 const addUserDialog={
-    template:`<dialog-s  v-bind:showCloseButton="false" v-bind:dialogData="dialogData"/>`,
+    template:`<dialog-s
+        title="Добавить пользователя"
+        v-bind:dialogData="dialogData"
+        :buttons="['ok']"
+        @click-ok="onOk"
+        @click-cansel="onCansel"
+    />`,
     props:{
         userName:String
     },
     data:function(){
-        console.log(this);
         return {
         dialogData:[{
                 isStatic:false,
@@ -13,9 +18,20 @@ const addUserDialog={
                 value:this.userName
         }]
     }},
-    watch:{
-        dialogData:function(nV,oV){
-            console.log(nV);
+    methods:{
+        onOk:function(e,e2){
+            // const index = +e.srcElement.getAttribute('data-index');
+            console.log(this,e, e2);
+            // console.log(e.srcElement.value);
+            // this.userName = e.srcElement.value;
+        },
+        onCansel:function(e,e2){
+            console.log('cansel',e,e2);
+        }
+    },
+    whatc:{
+        dialogData:function(nV, oV){
+            console.log(nV,oV);
         }
     }
 }
