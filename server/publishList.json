@@ -1,6 +1,7 @@
 {
     "/css/*":"css",
     "/js/jquery/*":"node_modules/jquery/dist",
+    "/dist/*":"dist",
     "/js/*":"client",
     "/js/client/*":"client",
     "/js/vue.js":"client/vue/vue.js",

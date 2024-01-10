@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "lib":["es2022", "dom"],
+        "module": "ESNext",
+        "sourceMap":true,
+        "moduleResolution": "Node",
+        "outDir": ".",
+        "experimentalDecorators": false,
+        
+        "esModuleInterop": true
+    },
+    "files":[
+        "client/main.js"
+    ],
+    "exclude": ["node_modules"],
+    "extends": "./tsconfig_ex.json"
+}

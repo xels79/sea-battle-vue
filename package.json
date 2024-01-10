@@ -4,7 +4,8 @@
   "description": "Клиент серверный морской бой.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --mode development"
   },
   "repository": {
     "type": "git",
@@ -16,15 +17,20 @@
     "url": "https://github.com/xels79/sea-battle2/issues"
   },
   "homepage": "https://github.com/xels79/sea-battle2#readme",
-  "type": "module",
   "dependencies": {
     "cookie-parse": "^0.4.0",
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
     "mime-types": "^2.1.35",
-    "mustache": "^4.2.0"
+    "mustache": "^4.2.0",
+    "vue": "^3.4.7"
   },
   "devDependencies": {
-    "@types/cookie-parser": "^1.4.6"
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.8",
+    "@types/cookie-parser": "^1.4.6",
+    "babel-loader": "^9.1.3",
+    "ts-loader": "^9.5.1",
+    "webpack-cli": "^5.1.4"
   }
 }

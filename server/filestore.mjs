@@ -1,7 +1,7 @@
-import { JSONFiles } from './jsonfiles.js';
+import { JSONFiles } from './jsonfiles.mjs';
 import path from 'node:path';
 import fs from 'node:fs';
-import require from './require.js';
+import require from './require.mjs';
 const mime = require('mime-types');
 export class FileStore{
     constructor(configPath){

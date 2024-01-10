@@ -1,4 +1,4 @@
-import  require from './require.js';
+import  require from './require.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 const Mustache=require('mustache');
