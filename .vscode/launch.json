@@ -37,7 +37,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/server/server.mjs",
+            "program": "${workspaceFolder}/server/out/server.js",
             // "runtimeArgs":["-r"]
         }
     ]

@@ -1,26 +1,37 @@
-import { JSONFiles } from './jsonfiles.mjs';
+import { JSONFiles } from './jsonfiles';
 import path from 'node:path';
 import fs from 'node:fs';
-import require from './require.mjs';
+import require from './require';
+import { strict } from 'node:assert';
 const mime = require('mime-types');
+import express from 'express';
+interface sendFileHeaderI{
+    path:string,
+    header:Object
+};
+type SSJSon = {
+    [key: string]: string
+}
 export class FileStore{
-    constructor(configPath){
-        this._config = JSONFiles.getJSON(path.resolve(configPath));
+    _config:SSJSon={};
+    _keys:string[];
+    constructor(configPath:string){
+        this._config = <SSJSon>JSONFiles.getJSON(path.resolve(configPath));
         this._keys = Object.keys(this._config);
     }
-    _findFullKey(url){
-        const index = this._keys.indexOf( url );
+    _findFullKey(url:string):string{
+        const index:number = this._keys.indexOf( url );
         if (index > -1){
             return this._config[this._keys[index]];
         }else{
             return '';
         }
     }
-    _findPartKey(url){
-        const urlDirPart = path.dirname(url);
-        const fName = path.basename(url);
-        const key = this._keys.find(element => {
-            const keyParts = element.split('/');
+    _findPartKey(url:string):(string | boolean){
+        const urlDirPart:string = path.dirname(url);
+        const fName:string = path.basename(url);
+        const key:( string | undefined ) = this._keys.find(( element:string ) => {
+            const keyParts:string[] = element.split('/');
             if (keyParts[keyParts.length-1] === '*'){
                 keyParts.pop();
             }else{
@@ -36,10 +47,10 @@ export class FileStore{
             return '';
         }
     }
-    getFileByUrl(url){
-        const relativePath = this._findFullKey(url) || this._findPartKey(url);
+    getFileByUrl(url:string):string{
+        const relativePath:(string | boolean) = this._findFullKey(url) || this._findPartKey(url);
         if (relativePath){
-            const fullPath = path.resolve(relativePath);
+            const fullPath:string = path.resolve(<string>relativePath);
             console.log(`URL: "${url}"`);
             console.log(`\tПолный путь: "${fullPath}"`);
             if (fs.existsSync(fullPath)) {
@@ -54,8 +65,8 @@ export class FileStore{
             return '';
         }
     }
-    publishFileParam(filePath){
-        const mmT = mime.lookup(filePath);
+    publishFileParam(filePath:string):sendFileHeaderI{
+        const mmT:string = mime.lookup(filePath);
         console.log(`Параметры отправки файла "${path.basename(filePath)}"`);
         console.log(`\tMime-type: "${mmT}"`)
         return {
@@ -63,10 +74,10 @@ export class FileStore{
             header:{'Content-Type':mmT}
         }
     }
-    publishFile(respose, url){
+    publishFile(respose:express.Response, url:string):void{
         const pathFile = this.getFileByUrl(url);
         if (pathFile){
-            const publishParam = this.publishFileParam(pathFile);
+            const publishParam:sendFileHeaderI = this.publishFileParam(pathFile);
             respose.set(publishParam.header);
             respose.sendFile(publishParam.path);
         }else{

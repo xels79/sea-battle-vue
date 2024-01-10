@@ -1,3 +1,4 @@
+/*
 import { ref, h, defineComponent } from 'vue';
 const dialog_s=defineComponent({
         template:`
@@ -13,7 +14,7 @@ const dialog_s=defineComponent({
                     </template>
                     <template v-else>
                         <label v-if="element.label" class="control__label">{{ element.label }}</label>
-                        <input :data-index="index" type="text" class="control__input" v-model="element.value" @change="onChange"/>
+                        <input :data-index="index" type="text" class="control__input" v-model="element.value"/>
                     </template>
                 </template>
             </div>
@@ -50,17 +51,11 @@ const dialog_s=defineComponent({
                 }
             });
             return retVal;
-        },
-        methods:{
-            onChange:function(e:any,e2:any){
-                const index = +e.srcElement.getAttribute('data-index');
-                // this.dialogData[index].value = e.srcElement.value;
-            }
         }
 });
+*/
 
-/*
-const dialog_s:Object={
+const dialog_s={
     template:`
         <div class="dialog">
         <div class="dialog__heading">
@@ -74,7 +69,7 @@ const dialog_s:Object={
                 </template>
                 <template v-else>
                     <label v-if="element.label" class="control__label">{{ element.label }}</label>
-                    <input :data-index="index" type="text" class="control__input" v-model="element.value" @change="onChange"/>
+                    <input :data-index="index" type="text" class="control__input" v-model="element.value"/>
                 </template>
             </template>
         </div>
@@ -111,14 +106,7 @@ const dialog_s:Object={
             }
         });
         return retVal;
-    },
-    methods:{
-        onChange:(e:any,e2:any)=>{
-            const index = +e.srcElement.getAttribute('data-index');
-            this.dialogData[index].value = e.srcElement.value;
-        }
     }
-
 };
-*/
+
 export default dialog_s;

@@ -1,7 +1,7 @@
 // import path from 'node:path';
 const path = require('path');
 module.exports = {
-    entry: './client/main.ts',
+    entry: './client/main.js',
     mode:'development',
     target:"node10",
     module: {

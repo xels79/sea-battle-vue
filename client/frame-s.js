@@ -23,18 +23,18 @@ const addUserDialog={
         }]
     }},
     methods:{
-        onOk:function(e:Object,e2:any){
+        onOk:function(e,e2){
             // const index = +e.srcElement.getAttribute('data-index');
             console.log(this,e, e2);
             // console.log(e.srcElement.value);
             // this.userName = e.srcElement.value;
         },
-        onCansel:function(e:Object,e2:any){
+        onCansel:function(e,e2){
             console.log('cansel',e,e2);
         }
     },
 }
-const frame_s:Object = {
+const frame_s = {
     components:{addUserDialog},
     template:`
         <div class="frame">

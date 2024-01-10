@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "lib":["es2022"],
+        "module": "ESNext",
+        "sourceMap":true,
+        "moduleResolution": "Node",
+        "outDir": "./server/out",
+        "experimentalDecorators": false,
+        "types": ["node"],
+        "esModuleInterop": true,
+        "isolatedModules":false,
+        "verbatimModuleSyntax":false,
+        "strict":true
+    }, 
+    "files":[
+        "./server/server.ts"
+    ],
+    "exclude": ["node_modules"],
+    "extends": ["./tsconfig_ex.json"]
+}

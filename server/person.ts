@@ -1,6 +1,18 @@
 let _pID=1;
+interface IPerson{
+    id:number;
+    token:string;
+    enemyID:number;
+    score:number;
+    name:string;
+}
 class Person{
-    constructor(params){
+    protected _id:number;
+    protected _token:string;
+    protected _enemyID:number;
+    protected _score:number;
+    protected _name:string;
+    constructor(params:(IPerson | string | undefined)){
         if (params instanceof Object){
             ({
                 id:this._id,
@@ -21,25 +33,21 @@ class Person{
             _pID++;
         }
     }
-    get name(){return this._name;}
-    get token(){return this._token;}
-    get score(){return this._score;}
-    get enemyID(){return this._enemyID;}
-    set score(val){
-        if (typeof(val) === 'number'){
-            this._score = val;
-        }else{
-            console.warn("Person: значение score должно быть число");
-        }
+    get name():string{return this._name;}
+    get token():string{return this._token;}
+    get score():number{return this._score;}
+    get enemyID():number{return this._enemyID;}
+    set score(val:number){
+        this._score = val;
     }
-    set enemyID(val){
+    set enemyID(val:number){
         if (+val>0){
             this._enemyID = val;
         }else{
-            console.warn("Person: значение enemyID должно быть большк 0");
+            console.warn("Person: значение enemyID должно быть большe 0");
         }
     }
-    serialize(){
+    serialize():string{
         return JSON.stringify({
             id:this._id,
             name:this._name,
@@ -49,4 +57,5 @@ class Person{
         });
     }
 }
-export default Person;
+export { IPerson, Person };
+// export default Person;

@@ -1,8 +1,9 @@
-import  require from './require.mjs';
+import require from './require';
 import fs from 'node:fs';
 import path from 'node:path';
 const Mustache=require('mustache');
 class ServerCore{
+    _playersList:Object[];
     constructor(){
         this._playersList = [];
     }
