@@ -1,0 +1,13 @@
+{
+  "name": "server-fore-battle-sea",
+  "version": "1.0.0",
+  "description": "Серверная часть МБ",
+  "main": "./out/server.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexander S.",
+  "license": "ISC",
+  "types": "./out/server.d.ts",
+  "type":"module"
+}

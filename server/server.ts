@@ -1,7 +1,7 @@
 import path from 'node:path';
-import { FileStore } from './filestore';
-import  require from './require';
-import User from './user';
+import { FileStore } from './filestore.js';
+import  require from './require.js';
+import User from './user.js';
 //import ServerCore from './servercore';
 import express_types from 'express';
 const port = 3000;

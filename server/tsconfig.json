@@ -5,19 +5,18 @@
         "module": "ESNext",
         "sourceMap":true,
         "moduleResolution": "Node",
-        "outDir": ".",
+        "outDir": "./out",
         "experimentalDecorators": false,
         "strictPropertyInitialization": false,
         "declaration": false,
         "types": ["node"],
         "esModuleInterop": true,
-        "isolatedModules":true,
-        "verbatimModuleSyntax":true,
+        "isolatedModules":false, 
+        "verbatimModuleSyntax":false,
         "strict":true
     }, 
     "files":[
-        "client/main.ts"
+        "./server.ts"
     ],
-    "exclude": ["node_modules"],
-    "extends": ["./tsconfig_ex.json", "@vue/tsconfig/tsconfig.dom.json"]
+    "extends":["./tsconfig_ex.json"]
 }

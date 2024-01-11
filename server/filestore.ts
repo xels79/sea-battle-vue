@@ -1,7 +1,7 @@
-import { JSONFiles } from './jsonfiles';
+import { JSONFiles } from './jsonfiles.js';
 import path from 'node:path';
 import fs from 'node:fs';
-import require from './require';
+import require from './require.js';
 import { strict } from 'node:assert';
 const mime = require('mime-types');
 import express from 'express';

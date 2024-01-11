@@ -1,4 +1,4 @@
-import { Person, IPerson } from './person';
+import { Person, IPerson } from './person.js';
 import crypto from 'node:crypto';
 const SALT = '$ome$alt';
 class User extends Person{

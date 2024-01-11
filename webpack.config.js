@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     entry: './client/main.js',
     mode:'development',
-    target:"node10",
+    target:"node20",
     module: {
         rules: [
             {
@@ -17,12 +17,16 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                      presets: [
-                        ['@babel/preset-env', { targets: "defaults" }]
-                      ]
+                        presets: [
+                            ['@babel/preset-env', { targets: "defaults" }]
+                        ]
                     }
-                  }
-                        }
+                }
+            },
+            // {
+            //     test: /\.css$/i,
+            //     use: ["style-loader", "css-loader"],
+            // },        
         ],
     },
     resolve: {
