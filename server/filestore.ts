@@ -1,4 +1,5 @@
 import { JSONFiles } from './jsonfiles.js';
+import { SSJSon  } from './data.interfacec.js';
 import path from 'node:path';
 import fs from 'node:fs';
 import require from './require.js';
@@ -9,14 +10,11 @@ interface sendFileHeaderI{
     path:string,
     header:Object
 };
-type SSJSon = {
-    [key: string]: string
-}
 export class FileStore{
     _config:SSJSon={};
     _keys:string[];
     constructor(configPath:string){
-        this._config = <SSJSon>JSONFiles.getJSON(path.resolve(configPath));
+        this._config = JSONFiles.getJSON(path.resolve(configPath));
         this._keys = Object.keys(this._config);
     }
     _findFullKey(url:string):string{

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
-export class JSONFiles{
-    static getJSON(path:string):Object{
+import { SSJSon } from './data.interfacec.js';
+class JSONFiles{
+    static getJSON(path:string):SSJSon{
         let rVal={};
         try{
             const rawdata = fs.readFileSync(path); 
@@ -12,3 +13,4 @@ export class JSONFiles{
         return rVal;
     }
 }
+export {SSJSon, JSONFiles}

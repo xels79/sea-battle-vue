@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "jsx": "preserve",
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "noEmit": false,
+        "lib": [
+            "esnext",
+            "dom",
+            "dom.iterable",
+            "scripthost"
+        ],
+    }, 
+    "exclude": [
+        "node_modules"
+    ],    
+    "files":[
+        "./client/main.ts"
+    ],
+    "extends": [
+        "@vue/tsconfig/tsconfig.dom.json",
+        
+    ],
+}

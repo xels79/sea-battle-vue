@@ -23,13 +23,13 @@ const addUserDialog={
         }]
     }},
     methods:{
-        onOk:function(e,e2){
+        onOk:function(e:any,e2:any){
             // const index = +e.srcElement.getAttribute('data-index');
             console.log(this,e, e2);
             // console.log(e.srcElement.value);
             // this.userName = e.srcElement.value;
         },
-        onCansel:function(e,e2){
+        onCansel:function(e:any,e2:any){
             console.log('cansel',e,e2);
         }
     },

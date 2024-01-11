@@ -1,34 +1,62 @@
-import require from './require';
+import require from './require.js';
 import fs from 'node:fs';
 import path from 'node:path';
+import User from './user.js'
+import { SAnyJSon } from "./data.interfacec.js";
+import express_types from 'express';
+import { toDisplayString } from 'vue';
 const Mustache=require('mustache');
+interface IActionID{
+    name:string,
+    message?:string,
+    data?:SAnyJSon
+}
+interface IResponse{
+    status:String,
+    action:ServerAction
+}
+class ServerAction implements IActionID{
+    name: string;
+    message?: string;
+    data?: SAnyJSon;
+    constructor(name:string, message:string,data:SAnyJSon){
+        this.name = name;
+        this.message = message;
+        this.data = data;
+    }
+    stringifi():string{
+        return JSON.stringify(this);
+    }
+    run():void{}
+}
+class AddUserAction extends ServerAction{
+    constructor(){
+        super("adduser", "Добавить пользователя", {});
+    }
+}
+class ServerResponse implements IResponse{
+    status: String;
+    action: ServerAction;
+    constructor(status:string, action:ServerAction){
+        this.status = status;
+        this.action = action;
+    }
+    stringifi():string{
+        return JSON.stringify(this);
+    }
+}
 class ServerCore{
-    _playersList:Object[];
+    _playersList:User[];
     constructor(){
         this._playersList = [];
+        console.warn('coreTest');
+        const tmp:ServerResponse = new ServerResponse("ok", new ServerAction("add user", "all right", {"key1":23}));
+        console.warn( tmp.stringifi());
     }
-    renderFile(name, params){
-        try{
-            const view = fs.readFileSync(path.resolve(name), { encoding: 'utf8', flag: 'r' });
-            return Mustache.render(view, params);
-        }catch(error){
-            console.error(error.name, error.message);
-            return '';
-        }
-    }
-    renderDialog(params){
-        params=params || {};
-        params.close = params.close || true;
-        params.title = params.title || '';
-        params.body = params.body || '';
-        params.footer = params.footer || '';
-        params.role = params.role || false;
-        return this.renderFile('./views/dialog.html', params);
-    }
-    findUserByToken(token){
+    findUserByToken(token:string):(User | undefined){
         return this._playersList.find(element=>element.token === token);
     }
-    run(request, response){
+    run(request:express_types.Request, response:express_types.Response):void{
         if (request.cookies && request.cookies.token && this._playersList.length){
             const user = this.findUserByToken(request.cookies.token);
             if (user){
@@ -40,22 +68,11 @@ class ServerCore{
             this._noPlayer(request, response);
         }
     }
-    _noPlayer(request,response){
+    _noPlayer(request:express_types.Request, response:express_types.Response){
         if (request.body.execActionName && request.body.execActionName==='add user'){
 
         }else{
-            response.json({
-                status:'ok',
-                action:{
-                        name:'add user',
-                        html:this.renderDialog({
-                            role:'add user',
-                            title:'Добавить игрока',
-                            body:'<div class="controls__block><label class="control__label" for="user-name">Введите имя: </label><input class="control__input" id="user-name" type="text"/></div>',
-                            footer:'<div class="control__block"><a id="add-user" class="btn" href="#">Добавить</a></div>'
-                        })
-                    }
-            });
+            response.json(JSON.stringify(new ServerResponse("ok", new AddUserAction())));
         }
     }
 }

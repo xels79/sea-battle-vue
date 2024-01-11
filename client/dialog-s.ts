@@ -56,6 +56,7 @@ const dialog_s=defineComponent({
 */
 
 const dialog_s={
+    buttons:[],
     template:`
         <div class="dialog">
         <div class="dialog__heading">
@@ -94,7 +95,7 @@ const dialog_s={
     },
     data:function(){
         const retVal={ showOk:false, showCansel:false, showCloseButton:false };
-        this.buttons.forEach(element => {
+        this.buttons.forEach((element:string) => {
             switch (element){
                 case 'ok':
                     retVal.showOk = true;

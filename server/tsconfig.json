@@ -13,7 +13,14 @@
         "esModuleInterop": true,
         "isolatedModules":false, 
         "verbatimModuleSyntax":false,
-        "strict":true
+        "strict":true,
+
+    "plugins": [
+        {
+            "transform": "tsc-progress",
+            "title": "TSC"
+        }
+    ],    
     }, 
     "files":[
         "./server.ts"
