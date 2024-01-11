@@ -1,4 +1,4 @@
-Vue.component('dialog-s',{
+const dialog_s = {
     template:`
         <div class="dialog">
         <div class="dialog__heading">
@@ -57,4 +57,5 @@ Vue.component('dialog-s',{
         }
     }
 
-});
+};
+export default dialog_s;

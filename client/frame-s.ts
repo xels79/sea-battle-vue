@@ -1,4 +1,4 @@
-(function(){
+import dialog_s from './dialogs.js';
 const addUserDialog={
     template:`<dialog-s
         title="Добавить пользователя"
@@ -7,6 +7,9 @@ const addUserDialog={
         @click-ok="onOk"
         @click-cansel="onCansel"
     />`,
+    components:{
+        'dialog-s':dialog_s
+    },
     props:{
         userName:String
     },
@@ -35,7 +38,7 @@ const addUserDialog={
         }
     }
 }
-Vue.component('frame-s',{
+const frame_s={
     components:{addUserDialog},
     template:`
         <div class="frame">
@@ -49,5 +52,5 @@ Vue.component('frame-s',{
         showDialog:true,
         userName:'test'
     };},
-});
-})();
+};
+export default frame_s;
