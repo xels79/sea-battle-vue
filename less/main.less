@@ -1,4 +1,5 @@
 @import './colors.less';
+@import './spiner.less';
 @import './frames.less'; 
 @import './dialog.less';
 @import './conrolls.less';
@@ -85,7 +86,11 @@
   }
   .site__frames{
     flex: 1;
-    position: relative; 
+    position: relative;
+    .bunner .loader{
+      width: 148px;
+      height: 148px;
+    }
   }
   .site__info{
     padding: 1rem .5rem;
@@ -284,4 +289,18 @@
 }
 .btn:not(:first-of-type){
   margin-left: .5rem;
+}
+.bunner{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top:0;
+  bottom: 0;
+  background: #00000060;
+  .loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
 }

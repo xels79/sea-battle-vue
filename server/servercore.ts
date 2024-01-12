@@ -72,7 +72,9 @@ class ServerCore{
         if (request.body.execActionName && request.body.execActionName==='add user'){
 
         }else{
-            response.json(JSON.stringify(new ServerResponse("ok", new AddUserAction())));
+            setTimeout(()=>
+            response.json(new ServerResponse("ok", new AddUserAction())),
+            2000);
         }
     }
 }

@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "win-compile-serv": "tsc --project ./server/tsconfig.json",
-    "postwin-compile-serv": "if [ \"$npm_config_andstop\" ];then echo \"Компиляция завершина.\"; else echo \"Компиляция завершина. Запуск!\";node ./server/out/server.js;fi",
     "compile-serv": "./compile_server.sh andstop=$npm_config_andstop"
   },
   "repository": {
