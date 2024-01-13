@@ -13,32 +13,34 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="site__heading background__attachment">
-        <div class="container">
-            <nav class="site__nav">
-                <ul class="list nav__list">
-                    <li class="list__item"><a href="" class="list__link">item 1</a></li>
-                    <li class="list__item"><a href="" class="list__link">item 2</a></li>
-                    <li class="list__item"><a href="" class="list__link player__short-info">&laquo;Игрок&raquo;&nbsp;счёт:&nbsp;</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main class="site__content background__attachment">
-        <div class="container">
-            <div class="site__info">
-                <div class="site__frame no-user__frame">
-                    <div class="frame__heading">Список игроков</div>
-                    <div class="frame__body">
-                        <ul class="list side__list" id="players_list"></ul>
-                    </div>
-                    <div class="frame__footer"></div>
-                </div>
+    <div class="vue__wrap" id="app">
+        <header class="site__heading background__attachment">
+            <div class="container">
+                <nav class="site__nav">
+                    <ul class="list nav__list">
+                        <li class="list__item"><router-link to="/" class="list__link">Перезапуск</router-link></li>
+                        <li class="list__item"><a href="" class="list__link">item 2</a></li>
+                        <li class="list__item"><a href="" class="list__link player__short-info">&laquo;Игрок&raquo;&nbsp;счёт:&nbsp;</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="site__frames" id="app"><frame-s msg="Uray"/></div>
-        </div>
-    </main>
-    <footer class="site__footer background__attachment"><div class="console"></div></footer>
+        </header>
+        <main class="site__content background__attachment">
+            <div class="container">
+                <div class="site__info">
+                    <div class="site__frame no-user__frame">
+                        <div class="frame__heading">Список игроков</div>
+                        <div class="frame__body">
+                            <ul class="list side__list" id="players_list"></ul>
+                        </div>
+                        <div class="frame__footer"></div>
+                    </div>
+                </div>
+                <div class="site__frames"><router-view></router-view></div>
+            </div>
+        </main>
+        <footer class="site__footer background__attachment"><div class="console"></div></footer>
+    </div>
     <!-- <script src="./js/client/dialogs.js"></script> -->
     <!-- <script src="./js/client/frame-s.js"></script> -->
     <script src="./dist/bundle.js"></script>

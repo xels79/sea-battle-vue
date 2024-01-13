@@ -11,6 +11,7 @@
         "baseUrl": ".",
         "noEmit": false,
         "verbatimModuleSyntax": false,
+        "isolatedModules":true,
         "lib": [
             "esnext",
             "dom",
@@ -26,6 +27,5 @@
     ],
     "extends": [
         "@vue/tsconfig/tsconfig.dom.json",
-        
     ],
 }

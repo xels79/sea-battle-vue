@@ -2,33 +2,15 @@ import require from './require.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import User from './user.js'
-import { SAnyJSon } from "./data.interfacec.js";
+import { IResponse } from "./data.interfacec.js";
 import express_types from 'express';
+import ServerAction from "./serveraction.js";
 import { toDisplayString } from 'vue';
 const Mustache=require('mustache');
-interface IActionID{
-    name:string,
-    message?:string,
-    data?:SAnyJSon
-}
-interface IResponse{
-    status:String,
-    action:ServerAction
-}
-class ServerAction implements IActionID{
-    name: string;
-    message?: string;
-    data?: SAnyJSon;
-    constructor(name:string, message:string,data:SAnyJSon){
-        this.name = name;
-        this.message = message;
-        this.data = data;
-    }
-    stringifi():string{
-        return JSON.stringify(this);
-    }
-    run():void{}
-}
+// interface IResponse{
+//     status:String,
+//     action:ServerAction
+// }
 class AddUserAction extends ServerAction{
     constructor(){
         super("adduser", "Добавить пользователя", {});

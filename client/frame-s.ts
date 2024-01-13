@@ -1,5 +1,15 @@
 import dialog_s from './dialog-s';
-import {SAnyJSon} from '../server/data.interfacec.js'
+// import adduserView from './vies/adduser.js';
+// import selectAponetView from './vies/selectAponent.js';
+import {SAnyJSon} from '../server/data.interfacec'
+// import { createRouter, RouterOptions, createWebHashHistory } from 'vue-router';
+// const router = createRouter({
+//     routes: [
+//         { path: '/', component: adduserView },
+//         { path: '/selectaponent', component: selectAponetView }
+//     ],
+//     history:createWebHashHistory()
+// });
 const addUserDialog={
     components:{
         "dialog-s":dialog_s
@@ -55,6 +65,9 @@ const frame_s = {
         mainBunner:true,
         userName:'test'
     };},
+    beforeCreate(){
+        console.log(this.mainBunner);
+    },
     mounted(){
         console.log(this);
         fetch('/',{
