@@ -1,18 +1,22 @@
 import ServerAction from "./serveraction.js"
-type SSJSon = {
+import { IPerson } from "./person"
+export type SSJSon = {
     [key: string]: string
 }
-type SAnyJSon = {
-    [key: ( string | number )]:(string | number | boolean | undefined | null)
+export type SAnyJSon = {
+    [key: ( string | number )]:(string | number | boolean | undefined | null | IPerson[] | IPerson)
 }
-interface IActionID{
+export interface IActionID{
     name:string,
     message?:string,
     data?:SAnyJSon
 }
-interface IResponse{
+export interface IResponse{
     status:String,
     action:ServerAction
 }
+export interface IServerConnector{
+    getShortUsersList():IPerson[]
+}
 
-export type {SSJSon, SAnyJSon, IActionID, IResponse};
+//export type {SSJSon, SAnyJSon, IActionID, IResponse};

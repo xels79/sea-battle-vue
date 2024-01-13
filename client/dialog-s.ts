@@ -13,8 +13,10 @@ const dialog_s={
                         <p class="control__text">{{ element.value }}</p>
                     </template>
                     <template v-else>
-                        <label v-if="element.label" class="control__label">{{ element.label }}</label>
-                        <input :data-index="index" type="text" class="control__input" v-model="element.value"/>
+                        <div class="control__block">
+                            <label v-if="element.label" class="control__label">{{ element.label }}</label>
+                            <input :data-index="index" type="text" class="control__input" v-model="element.value"/>
+                        </div>
                     </template>
                 </template>
             </div>
