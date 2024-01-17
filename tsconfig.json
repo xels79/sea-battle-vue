@@ -11,14 +11,20 @@
         "baseUrl": ".",
         "noEmit": false,
         "verbatimModuleSyntax": false,
-        "isolatedModules":true,
+        "isolatedModules":false,
         "lib": [
             "esnext",
             "dom",
             "dom.iterable",
             "scripthost"
         ],
-    }, 
+    },
+    "plugins": [
+        {
+            "transform": "tsc-progress",
+            "title": "TSC"
+        }
+    ],    
     "exclude": [
         "node_modules"
     ],    

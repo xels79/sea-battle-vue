@@ -14,14 +14,13 @@
         "isolatedModules":false, 
         "verbatimModuleSyntax":false,
         "strict":true,
-
+    }, 
     "plugins": [
         {
             "transform": "tsc-progress",
             "title": "TSC"
         }
     ],    
-    }, 
     "files":[
         "./server.ts"
     ],
